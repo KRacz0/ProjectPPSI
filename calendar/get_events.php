@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-$sql = "SELECT event_date as start, event_title as title, event_description as description FROM events WHERE user_id = ?";
+$sql = "SELECT event_date as start, event_title as title, event_end_date as end, event_color as color, all_day as allDay FROM events WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 
 if ($stmt === false) {
