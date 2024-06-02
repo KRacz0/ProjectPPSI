@@ -36,8 +36,8 @@ body {
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 900px;
+    width: 95%;
+    max-width: 1050px;
     padding: 20px;
     margin-top: 20px;
 }
@@ -50,6 +50,7 @@ body {
 
 #calendar {
     margin-top: 20px;
+    width: 100%;
 }
 
 .fc .fc-toolbar.fc-header-toolbar {
@@ -129,4 +130,90 @@ body {
     color: #fff;
 }
 
-/* RESPONSYWNOŚĆ */
+.modal-content {
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.modal-header {
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-body .form-label {
+    font-weight: 500;
+}
+
+.modal-footer {
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--main-color);
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--active-color);
+}
+
+.btn-secondary {
+    background-color: #e2e2e2;
+    border: none;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #d1d1d1;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border: none;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.form-check-input {
+    margin-top: 7px;
+}
+
+#timeFields, #editTimeFields {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    transition: opacity 0.3s;
+}
