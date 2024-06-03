@@ -1,19 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --main-color: #00aaff;
+    --secondary-color: #512da8;
+    --text-color: #333;
+    --bg-color: #f0f8ff;
+    --white-color: #fff;
+    --black-color: #000;
+    --font-family: 'Poppins', sans-serif;
+}
+
 body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family:monospace;
+    background-color: var(--bg-color);
+    background: white
+    color: var(--text-color);
+    font-family: var(--font-family);
 }
 
 .header .navbar-brand {
-    color: #ffffff;
+    color: var(--white-color);
 }
 
 .header .navbar-nav .nav-link {
-    color: #ffffff;
+    color: var(--white-color);
 }
 
-.text-white {
-    color: #ffffff;
+.container h1 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.container .description {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--main-color);
 }
 
 .features {
@@ -27,7 +57,7 @@ body {
     width: 80%;
     max-width: 700px;
     height: 90px;
-    border: 1px solid #00aaff;
+    border: 1px solid var(--main-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,13 +66,13 @@ body {
 }
 
 .feature-item:hover {
-    background-color: #00aaff;
-    color: #000;
+    background-color: var(--main-color);
+    color: var(--white-color);
     transform: scale(1.05);
 }
 
 .feature-title {
-    color: #00aaff;
+    color: var(--main-color);
     text-align: center;
     padding: 0 1rem;
     display: flex;
@@ -59,24 +89,21 @@ footer.footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--secondary-color);
+    padding: 1rem 0;
 }
 
 footer.footer .text-muted {
     color: #cccccc;
 }
-.container h1:first-child {
-    color: #00aaff;
-}
 
 .keyword {
-    color:#00aaff;
+    color: var(--main-color);
 }
 
 .img-fluid {
-    max-width: 100%; 
-    height: auto; 
-    display: block; 
+    max-width: 100%;
+    height: auto;
+    display: block;
     margin: 0 auto;
 }
-
-
