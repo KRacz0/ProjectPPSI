@@ -31,7 +31,7 @@ body {
 }
 
 .container .description {
-    color: var(--text-color);
+    color: var (--text-color);
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }
@@ -61,7 +61,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.6s ease;
+    transition: background-color 0.6s ease, transform 1.2s ease;
 }
 
 .feature-item:hover {
@@ -82,6 +82,10 @@ body {
 
 .feature-title i {
     font-size: 1.5rem;
+}
+
+.feature-item:hover .feature-title {
+    color: var(--white-color);
 }
 
 footer.footer {
