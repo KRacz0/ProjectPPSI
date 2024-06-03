@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-$sql = "SELECT id, event_date as start, event_title as title, event_end_date as end, event_color as color, all_day as allDay, note FROM events WHERE user_id = ?";
+$sql = "SELECT id, event_date as start, event_title as title, event_end_date as end, event_color as color, all_day as allDay, event_start_time, event_end_time, note FROM events WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 
 if ($stmt === false) {
@@ -31,6 +31,15 @@ if ($result === false) {
 $events = [];
 while ($row = $result->fetch_assoc()) {
     $row['allDay'] = $row['allDay'] == 1;
+    if ($row['note']) {
+        $row['extendedProps'] = ['note' => $row['note']];
+    }
+    if ($row['event_start_time']) {
+        $row['start'] .= 'T' . $row['event_start_time'];
+    }
+    if ($row['event_end_time']) {
+        $row['end'] .= 'T' . $row['event_end_time'];
+    }
     $events[] = $row;
 }
 

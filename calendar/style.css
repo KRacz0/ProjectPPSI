@@ -24,9 +24,8 @@ body {
     background-color: #c9d6ff;
     background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    flex-direction: column;
     height: 100vh;
     padding: 20px;
     overflow: hidden;
@@ -36,8 +35,8 @@ body {
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    width: 95%;
-    max-width: 1050px;
+    width: 80%;
+    max-width: 1000px;
     padding: 20px;
     margin-top: 20px;
 }
@@ -105,6 +104,11 @@ body {
 
 .fc-daygrid-day {
     position: relative;
+}
+
+.fc-event .fa-sticky-note {
+    margin-left: 5px;
+    color: #ffcc00; 
 }
 
 .add-event-btn {
@@ -216,4 +220,49 @@ body {
     gap: 10px;
     align-items: center;
     transition: opacity 0.3s;
+}
+
+#eventPanel {
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 20%;
+    padding: 20px;
+    max-height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: none;
+}
+
+#eventPanel h2 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#eventPanel .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#toggleEventPanelButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
