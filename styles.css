@@ -12,7 +12,6 @@
 
 body {
     background-color: var(--bg-color);
-    background: white
     color: var(--text-color);
     font-family: var(--font-family);
 }
@@ -106,4 +105,44 @@ footer.footer .text-muted {
     height: auto;
     display: block;
     margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .container h1 {
+        font-size: 1.5rem;
+    }
+
+    .container .description {
+        font-size: 1rem;
+    }
+
+    .features .feature-item {
+        width: 100%;
+        height: auto;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .col-md-6 {
+        margin-bottom: 2rem;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+    
+    .text-md-left {
+        text-align: center !important;
+    }
+    
+    .order-md-1 {
+        order: 1 !important;
+    }
+    
+    .order-md-2 {
+        order: 2 !important;
+    }
 }
