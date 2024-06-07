@@ -58,15 +58,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    function addOneDay(dateStr) {
+        const date = new Date(dateStr);
+        date.setDate(date.getDate() + 1);
+        return date.toISOString().split('T')[0];
+    }
+
     function loadEventList() {
         var eventList = document.getElementById('eventList');
         eventList.innerHTML = '';
         fetch('get_events.php')
             .then(response => response.json())
             .then(events => {
-                events.sort((a, b) => new Date(a.start) - new Date(b.start));
-
-                events.forEach(event => {
+                var currentDate = new Date();
+    
+                var filteredEvents = events.filter(event => new Date(event.start) >= currentDate);
+    
+                filteredEvents.sort((a, b) => new Date(a.start) - new Date(b.start));
+    
+                filteredEvents.forEach(event => {
                     var listItem = document.createElement('li');
                     listItem.className = 'list-group-item';
                     listItem.innerHTML = `
@@ -82,9 +92,10 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => console.error('Error loading event list:', error));
     }
+    
 
     function showEventDetails(event) {
-        console.log('Event data:', event); 
+        console.log('Event data:', event);
     
         var eventDetailsTitle = document.getElementById('eventDetailsTitle');
         var eventDetailsDate = document.getElementById('eventDetailsDate');
@@ -121,7 +132,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 week: 'Tydzień',
                 day: 'Dzień'
             },
-            events: 'get_events.php',
+            events: function(fetchInfo, successCallback, failureCallback) {
+                fetch('get_events.php')
+                    .then(response => response.json())
+                    .then(events => {
+                        events.forEach(event => {
+                            event.end = addOneDay(event.end); // Add one day to end date
+                        });
+                        successCallback(events);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching events:', error);
+                        failureCallback(error);
+                    });
+            },
             dateClick: function(info) {
                 selectedDate = info.dateStr;
                 eventStartDateInput.value = selectedDate;
@@ -131,10 +155,8 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             eventClick: function(info) {
                 var event = info.event;
-                console.log("Clicked event:", event);
 
                 editEventIdInput.value = event.id;
-                console.log("Setting event ID for editing:", event.id);
                 editEventTitleInput.value = event.title;
                 editEventStartDateInput.value = event.startStr.split('T')[0];
                 editEventEndDateInput.value = event.endStr ? event.endStr.split('T')[0] : event.startStr.split('T')[0];
@@ -215,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 eventData.id = data.id;
+                eventData.end = addOneDay(eventEndDate); // Add one day to end date before adding to calendar
                 calendar.addEvent(eventData);
             } else {
                 console.error('Error saving event:', data.error);
@@ -264,6 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 var event = calendar.getEventById(eventId);
                 if (event) {
                     event.remove();
+                    eventData.end = addOneDay(eventEndDate); 
                     calendar.addEvent(eventData);
                 }
             } else {
@@ -307,6 +331,18 @@ document.addEventListener('DOMContentLoaded', function() {
             editEventModal.hide();
         });
     });
+
+    document.getElementById('toggleEventPanelButton').addEventListener('click', function () {
+        document.getElementById('eventPanel').classList.toggle('active');
+    });
+    
+    document.querySelectorAll('.btn-close').forEach(button => {
+        button.addEventListener('click', function () {
+            const modal = button.closest('.modal');
+            $(modal).modal('hide');
+        });
+    });
+    
 
     loadEventList();
 });

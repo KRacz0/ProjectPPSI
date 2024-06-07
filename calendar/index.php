@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <h1 class="text-center">Twój kalendarz</h1>
                 <div id="calendar" class="mt-4"></div>
             </div>
@@ -142,21 +142,21 @@ if (!isset($_SESSION['user_id'])) {
 
     <!-- MODAL WYŚWIETLANIA SZCZEGÓŁÓW WYDARZENIA -->
     <div class="modal fade" id="eventDetailsModal" tabindex="-1" role="dialog" aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="eventDetailsModalLabel">Szczegóły Wydarzenia</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <h5 id="eventDetailsTitle"></h5>
-                <p id="eventDetailsDate"></p>
-                <p id="eventDetailsTime"></p>
-                <p id="eventDetailsNote"></p>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventDetailsModalLabel">Szczegóły Wydarzenia</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="eventDetailsTitle"></h5>
+                    <p id="eventDetailsDate"></p>
+                    <p id="eventDetailsTime"></p>
+                    <p id="eventDetailsNote"></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -166,4 +166,3 @@ if (!isset($_SESSION['user_id'])) {
     <script src='script.js'></script>
 </body>
 </html>
-
