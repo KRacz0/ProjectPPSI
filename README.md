@@ -167,7 +167,7 @@ CREATE TABLE email_config (
 
 ### Wysyłanie e-maili
 
-Aby wysłać e-maile z podsumowaniem wydarzeń, odwiedź stronę `email.php` i kliknij przycisk "Wyślij e-maile".
+Aby wysłać e-maile z podsumowaniem wydarzeń, odwiedź stronę `send_emails.php` i kliknij przycisk "Wyślij e-maile".
 
 ## Wnioski projektowe
 
